@@ -17,6 +17,7 @@ function App() {
   const dplayer = useRef<DPlayer>()
   const [currentTV, setCurrentTV] = useState<TVtype>()
   const originTitle = useRef(window.document.title)
+  const [showbangumi, setShowbangumi] = useState(false)
 
   const setTVInfo = useCallback((tv: TVtype) => {
     setCurrentTV(tv)
@@ -79,8 +80,10 @@ function App() {
         >
           {TVList.map(tv => <option key={tv.src} value={tv.src}>{ tv.title }</option>)}
         </select>
+        <button　onClick={() => setShowbangumi(prev => !prev)} style={{marginLeft: '0.8rem'}}>番組表</button>
       </div>
       <div id="dplayer"/>
+      {showbangumi && <iframe src="https://tv.yahoo.co.jp/listings" width="100%" style={{height: '85vh', marginTop: '1rem'}} frameBorder={0}/>}
     </div>
   )
 }
