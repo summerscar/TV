@@ -1,0 +1,46 @@
+[
+    {
+        "title": "TV asahi",
+        "src": "https://redlabmcdn.s.llnwi.net/jp01/ryowa4/index.m3u8"
+    },
+    {
+        "title": "TV Tokyo",
+        "src": "https://redlabmcdn.s.llnwi.net/jp01/ryowa6/index.m3u8"
+    },
+    {
+        "title": "フジテレビ",
+        "src": "https://redlabmcdn.s.llnwi.net/jp01/ryowa7/index.m3u8"
+    },
+    {
+        "title": "TOKYO MX",
+        "src": "https://redlabmcdn.s.llnwi.net/jp01/ryowa8/index.m3u8"
+    },
+    {
+        "title": "TOKYO MX2",
+        "src": "https://movie.mcas.jp/mcas/smil:mx2_prod.smil/master.m3u8"
+    },
+    {
+        "title": "TBS",
+        "src": "https://redlabmcdn.s.llnwi.net/jp01/ryowa5/index.m3u8"
+    },
+    {
+        "title": "日テレ",
+        "src": "https://redlabmcdn.s.llnwi.net/jp01/ryowa3/index.m3u8"
+    },
+    {
+        "title": "NHK G",
+        "src": "https://redlabmcdn.s.llnwi.net/jp01/ryowa2/index.m3u8"
+    },
+    {
+        "title": "NHK E",
+        "src": "https://redlabmcdn.s.llnwi.net/jp01/ryowa1/index.m3u8"
+    },
+    {
+        "title": "日テレ news 24",
+        "src": "https://n24-cdn-live.ntv.co.jp/ch01/index.m3u8"
+    },
+    {
+        "title": "五星体育",
+        "src": "http://shbu.live.bestvcdn.com.cn:8080/live/program/live/ssty/2300000/mnf.m3u8"
+    }
+]
