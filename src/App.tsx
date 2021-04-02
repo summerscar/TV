@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import logo from './logo.svg'
 import './App.scss'
 import DPlayer from 'dplayer';
@@ -6,7 +6,8 @@ import TVListConfig from './tv.config.json'
 
 type TVtype = {
   title: string,
-  src: 'string'
+  src: 'string',
+  img: 'string'
 }
 
 const TVList = TVListConfig as TVtype[]
@@ -18,6 +19,31 @@ function App() {
   const [currentTV, setCurrentTV] = useState<TVtype>()
   const originTitle = useRef(window.document.title)
   const [showbangumi, setShowbangumi] = useState(false)
+  const prevTV = useRef<TVtype>()
+  const prevDeg = useRef(0)
+
+  const containerDeg = useMemo(() => {
+    if (!currentTV) return 0
+    
+    if (currentTV !== prevTV.current) {
+      if (!prevTV.current) {
+        prevTV.current = TVList[0]
+      }
+
+      let delt = TVList.indexOf(currentTV) - TVList.indexOf(prevTV.current)
+
+      let deltDeg = delt * -1 * 360 / TVList.length
+      deltDeg = Math.abs(deltDeg) > 180 
+        ? deltDeg > 0 
+          ? -360 + deltDeg : 
+            360 + deltDeg 
+          : deltDeg
+      let deg = prevDeg.current + deltDeg
+      prevDeg.current = deg
+      prevTV.current = currentTV
+    }
+    return prevDeg.current
+  }, [currentTV])
 
   const setTVInfo = useCallback((tv: TVtype) => {
     setCurrentTV(tv)
@@ -45,7 +71,7 @@ function App() {
 
     dplayer.current = new DPlayer({
       container: document.getElementById('dplayer'),
-      autoplay: true,
+      autoplay: import.meta.env.MODE === 'production',
       video: {
         url: currentTV.src,
         type: 'hls'
@@ -69,6 +95,41 @@ function App() {
   return (
     <div className="App" id="App">
       <h2>Nihon TV</h2>
+      <div className="selector" onWheel={e => {
+        setCurrentTV(prev => {
+          const prevIndex = TVList.indexOf(prev!)
+          let nextIndex
+          if (e.deltaY > 0) {
+            nextIndex = prevIndex + 1
+          } else {
+            nextIndex = prevIndex - 1
+          }
+          nextIndex = nextIndex > TVList.length - 1
+            ? 0 
+            : nextIndex < 0 
+              ? TVList.length - 1
+              : nextIndex
+          return TVList[nextIndex]
+        })
+
+      }}>
+        <div className="container" style={{transform: `translateX(-50%) rotateY(${containerDeg}deg)`}}>
+        {
+            TVList.map((tv, index, arr) => (
+              <div 
+                className="tvImg" 
+                key={tv.title} 
+                style={{transform: `rotateY(${index * 360 / arr.length }deg ) translateZ(300px)`}}
+                onClick={() => {
+                  setCurrentTV(tv)
+                }}
+              >
+                <img src={`img/${tv.img}`}/>
+              </div>
+            ))
+          }
+        </div>      
+      </div>
       <div style={{padding: '0 0 20px'}}>
         <span>TV：</span>
         <select
