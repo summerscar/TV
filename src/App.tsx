@@ -96,22 +96,20 @@ function App() {
     <div className="App" id="App">
       <h2>Nihon TV</h2>
       <div className="selector" onWheel={e => {
-        setCurrentTV(prev => {
-          const prevIndex = TVList.indexOf(prev!)
-          let nextIndex
-          if (e.deltaY > 0) {
-            nextIndex = prevIndex + 1
-          } else {
-            nextIndex = prevIndex - 1
-          }
-          nextIndex = nextIndex > TVList.length - 1
-            ? 0 
-            : nextIndex < 0 
-              ? TVList.length - 1
-              : nextIndex
-          return TVList[nextIndex]
-        })
-
+        const prev = currentTV
+        const prevIndex = TVList.indexOf(prev!)
+        let nextIndex
+        if (e.deltaY > 0) {
+          nextIndex = prevIndex + 1
+        } else {
+          nextIndex = prevIndex - 1
+        }
+        nextIndex = nextIndex > TVList.length - 1
+          ? 0 
+          : nextIndex < 0 
+            ? TVList.length - 1
+            : nextIndex
+        setTVInfo(TVList[nextIndex])
       }}>
         <div className="container" style={{transform: `translateX(-50%) rotateY(${containerDeg}deg)`}}>
         {
@@ -121,7 +119,7 @@ function App() {
                 key={tv.title} 
                 style={{transform: `rotateY(${index * 360 / arr.length }deg ) translateZ(300px)`}}
                 onClick={() => {
-                  setCurrentTV(tv)
+                  setTVInfo(tv)
                 }}
               >
                 <img src={`img/${tv.img}`}/>
