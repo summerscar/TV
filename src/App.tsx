@@ -18,7 +18,6 @@ function App() {
   const dplayer = useRef<DPlayer>()
   const [currentTV, setCurrentTV] = useState<TVtype>()
   const originTitle = useRef(window.document.title)
-  const [showbangumi, setShowbangumi] = useState(false)
   const prevTV = useRef<TVtype>()
   const prevDeg = useRef(0)
 
@@ -139,10 +138,37 @@ function App() {
         >
           {TVList.map(tv => <option key={tv.src} value={tv.src}>{ tv.title }</option>)}
         </select>
-        <button　onClick={() => setShowbangumi(prev => !prev)} style={{marginLeft: '0.8rem'}}>番組表</button>
+        <button onClick={() => window.open('https://tv.yahoo.co.jp/listings')} style={{ marginLeft: '0.8rem' }}>番組表</button>
       </div>
-      <div id="dplayer"/>
-      {showbangumi && <iframe src="https://tv.yahoo.co.jp/listings" width="100%" style={{height: '85vh', marginTop: '1rem'}} frameBorder={0}/>}
+      <div id="dplayer" />
+      <table>
+        <tr>
+          <td>月曜から夜更かし</td>
+          <td>日テレ</td>
+          <td>月曜日　24時</td>
+        </tr>
+        <tr>
+          <td>恋はdeepに</td>
+          <td>日テレ</td>
+          <td>水曜日　22時</td>
+        </tr>
+        <tr>
+          <td>桜の塔</td>
+          <td>テレビ朝日</td>
+          <td>木曜日　21時</td>
+        </tr>
+        <tr>
+          <td>龍桜</td>
+          <td>ＴＢＳ</td>
+          <td>木曜日　ー</td>
+        </tr>
+        <tr>
+          <td>ネメシス</td>
+          <td>日テレ</td>
+          <td>日曜日　22時30分</td>
+        </tr>
+
+      </table>
     </div>
   )
 }
