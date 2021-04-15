@@ -15,7 +15,12 @@
     padding: 1rem 5px;
     perspective: 1000px;
     perspective-origin: 50% -30%;
-
+    border-radius: 10px;
+    transition: background-color .3s;
+    &:hover {
+        cursor: ns-resize;
+        background-color: rgba($color: #8f8f8f00, $alpha: .1);
+    }
     .container {
         transform-style: preserve-3d;
         position: absolute;
