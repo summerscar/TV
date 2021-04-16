@@ -15,7 +15,7 @@ const TVList = TVListConfig as TVtype[]
 const randomTV: () => TVtype = () => TVList[Math.floor(Math.random() * TVList.length)]
 
 function App() {
-  const selectorRef = useRef<HTMLDivElement>()
+  const selectorRef = useRef<HTMLDivElement>(null)
   const dplayer = useRef<DPlayer>()
   const [currentTV, setCurrentTV] = useState<TVtype>()
   const originTitle = useRef(window.document.title)
