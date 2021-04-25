@@ -169,7 +169,7 @@ function App() {
           <tr>
             <td>龍桜</td>
             <td>ＴＢＳ</td>
-            <td>木曜日　ー</td>
+            <td>日曜日　21時</td>
           </tr>
           <tr>
             <td>ネメシス</td>
