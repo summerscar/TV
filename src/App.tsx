@@ -167,6 +167,11 @@ function App() {
             <td>木曜日　21時</td>
           </tr>
           <tr>
+            <td>コントが始まる</td>
+            <td>日テレ</td>
+            <td>土曜日　22時</td>
+          </tr>
+          <tr>
             <td>龍桜</td>
             <td>ＴＢＳ</td>
             <td>日曜日　21時</td>
