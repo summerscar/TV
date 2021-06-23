@@ -9,3 +9,6 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 )
+
+
+console.log(`app version: ${window.__APP_VERSION__}`)
