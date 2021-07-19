@@ -156,31 +156,6 @@ function App() {
             <td>日テレ</td>
             <td>月曜日　24時</td>
           </tr>
-          <tr>
-            <td>恋はdeepに</td>
-            <td>日テレ</td>
-            <td>水曜日　22時</td>
-          </tr>
-          <tr>
-            <td>桜の塔</td>
-            <td>テレビ朝日</td>
-            <td>木曜日　21時</td>
-          </tr>
-          <tr>
-            <td>コントが始まる</td>
-            <td>日テレ</td>
-            <td>土曜日　22時</td>
-          </tr>
-          <tr>
-            <td>龍桜</td>
-            <td>ＴＢＳ</td>
-            <td>日曜日　21時</td>
-          </tr>
-          <tr>
-            <td>ネメシス</td>
-            <td>日テレ</td>
-            <td>日曜日　22時30分</td>
-          </tr>
         </tbody>
       </table>
     </div>
