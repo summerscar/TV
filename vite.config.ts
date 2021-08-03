@@ -7,9 +7,12 @@ const LoadCommitDate = gitprocess
   .execSync('git log -1 --date=format:"%Y/%m/%d %H:%M:%S" --format="%ad"')
   .toString()
 
-// https://vitejs.dev/config/
+  // https://vitejs.dev/config/
 export default defineConfig(({command, mode}) => {
   return {
+    server: {
+      host: '0.0.0.0'
+    },
     plugins: [reactRefresh()],
     define: {
       "__APP_VERSION__": JSON.stringify(LoadCommitDate)
